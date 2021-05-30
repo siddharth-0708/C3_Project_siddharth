@@ -76,5 +76,19 @@ class RestaurantTest {
 
         int orderValue = restaurant.getTotalOrderValue(itemList);
     }
+    @Test
+    public void total_Order_value_should_be_zero_without_giving_any_item_names() {
 
+        int orderValue = restaurant.getTotalOrderValue(itemList);
+        assertEquals(0,orderValue);
+    }
+    @Test
+    public void validate_Total_Order_value_by_giving_items_names() {
+
+        itemList.add("Sweet corn soup");
+        itemList.add("Vegetable lasagne");
+
+        int orderValue = restaurant.getTotalOrderValue(itemList);
+        assertEquals(388,orderValue);
+    }
 }
