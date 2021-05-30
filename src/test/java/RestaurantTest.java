@@ -4,14 +4,17 @@ import org.mockito.Mockito;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class RestaurantTest {
     Restaurant restaurant;
+    List<String> itemList;
     //REFACTOR ALL THE REPEATED LINES OF CODE
     @BeforeEach
     public void setup(){
+        itemList = new ArrayList<String>();
 
         LocalTime openingTime = LocalTime.parse("10:30:00");
         LocalTime closingTime = LocalTime.parse("22:00:00");
@@ -63,4 +66,15 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //<<<<<<<<<<<<<<<<<<<<<<<TOTAL VALUE ORDER PRICE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void failing_Test_case_where_Total_order_value_should_be_returned_after_the_method_is_implemented_given_list_of_items() {
+        restaurant =null;
+        itemList.add("Sweet corn soup");
+        itemList.add("Vegetable lasagne");
+
+        int orderValue = restaurant.getTotalOrderValue(itemList);
+    }
+
 }
